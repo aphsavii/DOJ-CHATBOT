@@ -1,7 +1,7 @@
 import { initVectorStore  } from "../connections/vectorStore.connection.js";
 import { StringOutputParser } from "@langchain/core/output_parsers";
 import { promptTemplate } from "./promp-template.js";
-import LLM from "../ml-models/vertext.model.js";
+import LLM from "../ml-models/vertex.model.js";
 import { createStuffDocumentsChain } from "langchain/chains/combine_documents";
 
 
