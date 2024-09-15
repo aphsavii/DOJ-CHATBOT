@@ -16,6 +16,6 @@ app.get('/', (req, res) => {
         msg:"Hello"
     })
 });
-app.use("/ask",queryRouter);
-app.use("/embed",embedRouter);
+app.use("/doj-chatbot/ask",queryRouter);
+app.use("/doj-chatbot/embed",embedRouter);
 export { httpServer}
