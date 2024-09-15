@@ -16,7 +16,6 @@ async function* retrieve(query,index) {
       ...retrievedDoc,
     };
   });
-  console.log("Retrieved context:", enhancedContext);
 
   const retrieverChain = await createStuffDocumentsChain({
     llm: LLM,
