@@ -3,7 +3,7 @@ import { filterDoc } from "./filterDoc.js";
 const crawlUrl = async (url, selector) => {
     const loader = new CheerioWebBaseLoader(url, {
         selector,
-        transformElement: (element) => element('script, style').remove().text(),
+        transformElement: (element) => element('script').remove().text(),
     });
 
     try {
