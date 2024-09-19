@@ -1,13 +1,13 @@
 import { initVectorStore  } from "../connections/vectorStore.connection.js";
 import { StringOutputParser } from "@langchain/core/output_parsers";
 import { promptTemplate } from "./promp-template.js";
-import LLM from "../ml-models/mistral.model.js";
+import LLM from "../ml-models/omni-mini.js";
 import { createStuffDocumentsChain } from "langchain/chains/combine_documents";
 
 
 async function* retrieve(query,index) {
   const vectorStore = await initVectorStore(index);
-  const retriever = vectorStore.asRetriever({ k:10, searchKwargs: { nprobe: 10 }, searchType: "cosine" });
+  const retriever = vectorStore.asRetriever({ k:6, searchKwargs: { nprobe: 10 }, searchType: "cosine" });
   const context = await retriever.invoke(query);
   
   const enhancedContext = context.map((retrievedDoc) => {
