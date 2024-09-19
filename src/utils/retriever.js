@@ -7,7 +7,7 @@ import { createStuffDocumentsChain } from "langchain/chains/combine_documents";
 
 async function* retrieve(query,index) {
   const vectorStore = await initVectorStore(index);
-  const retriever = vectorStore.asRetriever({ k:6, searchKwargs: { nprobe: 10 }, searchType: "cosine" });
+  const retriever = vectorStore.asRetriever({ k:10, searchKwargs: { nprobe: 10 }, searchType: "cosine" });
   const context = await retriever.invoke(query);
   
   const enhancedContext = context.map((retrievedDoc) => {
